@@ -24,23 +24,24 @@ const Input = styled.input`
   top: -9999px;
 
   &:checked + span {
-    background-color: pink;
-
     &:before {
       left: 27px;
+    }
+    &:after {
+      width: 50px;
     }
   }
 `
 
 const Slider = styled.span`
   display: flex;
+  overflow: hidden;
   cursor: pointer;
   width: 50px;
   height: 25px;
   border-radius: 100px;
   background-color: #bfbfbf;
   position: relative;
-  transform: translateX(0);
   transition: background-color 0.5s;
   &:before {
     content: '';
@@ -52,5 +53,12 @@ const Slider = styled.span`
     border-radius: 21px;
     transition: 0.5s;
     background: #fff;
+  }
+  &:after {
+    content: '';
+    transition: 0.5s;
+    width: 0;
+    height: 100%;
+    background-color: pink;
   }
 `
