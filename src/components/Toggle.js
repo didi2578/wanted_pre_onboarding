@@ -59,6 +59,6 @@ const Slider = styled.span`
     transition: 0.5s;
     width: 0;
     height: 100%;
-    background-color: pink;
+    background-color: purple;
   }
 `
