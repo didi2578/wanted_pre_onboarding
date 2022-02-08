@@ -1,20 +1,18 @@
 import React, { useState } from 'react'
-
-const tabs = [
-  { num: 'Tab 1', content: 'ONE' },
-  { num: 'Tab 2', content: 'TWO' },
-  { num: 'Tab 3', content: 'THREE' },
-]
+import Tab from './components/Tab'
+import Toggle from './components/Toggle'
 
 const App = () => {
-  const [currentIndex, setCurrentIndex] = useState(0)
+  const [tabIndex, setTabIndex] = useState(0)
+  const [toggled, setToggled] = useState(false)
 
   return (
     <>
-      {tabs.map((tab, index) => (
-        <button onClick={() => setCurrentIndex(index)}>{tab.num}</button>
-      ))}
-      <p>Tab menu {tabs[currentIndex].content}</p>
+      <Toggle
+        onChange={(event) => setToggled(event.target.checked)}
+        toggled={toggled}
+      />
+      <Tab tabIndex={tabIndex} setTabIndex={setTabIndex} />
     </>
   )
 }
