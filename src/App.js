@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import ClickToEdit from './components/ClickToEdit'
 import Modal from './components/Modal'
 import Tab from './components/Tab'
 import Toggle from './components/Toggle'
@@ -16,6 +17,7 @@ const App = () => {
       />
       <Modal showModal={showModal} setShowModal={setShowModal} />
       <Tab tabIndex={tabIndex} setTabIndex={setTabIndex} />
+      <ClickToEdit />
     </>
   )
 }
