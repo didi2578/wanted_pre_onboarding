@@ -21,6 +21,8 @@ const Modal = ({ showModal, setShowModal }) => {
 
 export default Modal
 const ModalWrapper = styled.div`
+  margin: 0 auto;
+  width: 50%;
   button {
     border: none;
   }
@@ -29,6 +31,7 @@ const ModalWrapper = styled.div`
     color: #fff;
     padding: 20px;
     border-radius: 40px;
+    cursor: pointer;
   }
 `
 const Background = styled.div`

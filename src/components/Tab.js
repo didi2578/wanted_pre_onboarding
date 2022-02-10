@@ -10,7 +10,9 @@ const Tab = ({ tabIndex, setTabIndex }) => {
   return (
     <>
       {tabs.map((tab, index) => (
-        <button onClick={() => setTabIndex(index)}>{tab.num}</button>
+        <button key={index} onClick={() => setTabIndex(index)}>
+          {tab.num}
+        </button>
       ))}
       <p>Tab menu {tabs[tabIndex].content}</p>
     </>
