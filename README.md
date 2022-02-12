@@ -47,9 +47,9 @@
   - 해결방안
     📑참고사이트(https://developer-talk.tistory.com/124)
 
-  1. ref와 EventListener를 사용하여 외부클릭을 감지한다.
-  2. `current.contains(e.target)` 현재 이벤트를 실행한 element가 ref에 포함되면 true, 포함되지 않으면 false이다.
-  3. 외부를 클릭했을 때 동작해야 하므로 ` if (current && !current.contains(e.target))` !를 붙여준다
+  i. ref와 EventListener를 사용하여 외부클릭을 감지한다.
+  ii. `current.contains(e.target)` 현재 이벤트를 실행한 element가 ref에 포함되면 true, 포함되지 않으면 false이다.
+  iii. 외부를 클릭했을 때 동작해야 하므로 ` if (current && !current.contains(e.target))` !를 붙여준다
 
 ## 6. Click To Edit
 ✅구현한 방법과 이유
