@@ -1,8 +1,9 @@
-import React from 'react'
+import React, { useState } from 'react'
 import styled from 'styled-components'
 import Container from './common/Container'
 
-const Modal = ({ showModal, setShowModal }) => {
+const Modal = () => {
+  const [showModal, setShowModal] = useState(false)
   return (
     <Container title={'Modal'}>
       <ModalWrapper>

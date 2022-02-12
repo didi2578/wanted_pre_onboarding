@@ -62,7 +62,7 @@ const Label = styled.label`
     text-align: center;
     margin-left: 5px;
     &:focus {
-      background-color: transparent;
+      background-color: #fff;
     }
   }
 `

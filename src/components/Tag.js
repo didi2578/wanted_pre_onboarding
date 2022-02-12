@@ -4,7 +4,7 @@ import Container from './common/Container'
 
 const Tag = () => {
   const [tag, setTag] = useState('')
-  const [tags, setTags] = useState([])
+  const [tags, setTags] = useState(['코딩', '좋아'])
   const [active, setActive] = useState(false)
 
   const tagChange = (e) => {

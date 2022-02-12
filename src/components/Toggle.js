@@ -1,12 +1,14 @@
-import React from 'react'
+import React, { useState } from 'react'
 import styled from 'styled-components'
 import Container from './common/Container'
 
-const Toggle = ({ onChange, toggled }) => {
+const Toggle = () => {
+  const [toggled, setToggled] = useState(false)
+
   return (
     <Container title={'Toggle'}>
-      <InputWrapper>
-        <Input type="checkbox" onChange={onChange} />
+      <InputWrapper onChange={(event) => setToggled(event.target.checked)}>
+        <Input type="checkbox" />
         <Slider />
       </InputWrapper>
       <p>Toggle switch {toggled ? 'ON' : 'OFF'} </p>

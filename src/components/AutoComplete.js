@@ -39,8 +39,8 @@ const AutoComplete = () => {
   })
   const handleClickOutside = (e) => {
     const { current } = wrapperRef
-
-    if (!current.contains(e.target)) {
+    console.log('요', e.target)
+    if (current && !current.contains(e.target)) {
       setSearch('')
       setDisplay(false)
     }
@@ -53,6 +53,7 @@ const AutoComplete = () => {
           value={search}
           onChange={handleSearch}
           onClick={() => setDisplay(!display)}
+          onBlur={handleClickOutside}
         />
         <Button onClick={() => onDelete()}>✖</Button>
         {display && (
