@@ -1,15 +1,16 @@
 import React from 'react'
 import styled from 'styled-components'
+import Container from './common/Container'
 
 const Toggle = ({ onChange, toggled }) => {
   return (
-    <>
+    <Container title={'Toggle'}>
       <InputWrapper>
         <Input type="checkbox" onChange={onChange} />
         <Slider />
       </InputWrapper>
       <p>Toggle switch {toggled ? 'ON' : 'OFF'} </p>
-    </>
+    </Container>
   )
 }
 
@@ -20,15 +21,13 @@ const InputWrapper = styled.label`
 `
 const Input = styled.input`
   position: absolute;
-  left: -9999px;
-  top: -9999px;
 
   &:checked + span {
     &:before {
-      left: 27px;
+      left: 55px;
     }
     &:after {
-      width: 50px;
+      width: 100px;
     }
   }
 `
@@ -37,8 +36,9 @@ const Slider = styled.span`
   display: flex;
   overflow: hidden;
   cursor: pointer;
-  width: 50px;
-  height: 25px;
+  width: 100px;
+  height: 50px;
+  margin: 0 auto;
   border-radius: 100px;
   background-color: #bfbfbf;
   position: relative;
@@ -46,10 +46,10 @@ const Slider = styled.span`
   &:before {
     content: '';
     position: absolute;
-    top: 2px;
-    left: 2px;
-    width: 21px;
-    height: 21px;
+    top: 5px;
+    left: 5px;
+    width: 40px;
+    height: 40px;
     border-radius: 21px;
     transition: 0.5s;
     background: #fff;

@@ -1,4 +1,6 @@
 import React, { useState } from 'react'
+import Container from './common/Container'
+import styled from 'styled-components'
 
 const ClickToEdit = () => {
   const [values, setValues] = useState({
@@ -20,29 +22,47 @@ const ClickToEdit = () => {
   }
 
   return (
-    <div>
+    <Container title={'Click To Edit'}>
       <form>
-        <label htmlFor="이름">이름</label>
-        <input
-          name="name"
-          value={values.name}
-          onChange={handleInput}
-          onBlur={handleChange}
-        />
-        <label htmlFor="나이">나이</label>
-        <input
-          name="age"
-          value={values.age}
-          onChange={handleInput}
-          onBlur={handleChange}
-        />
+        <Label htmlFor="이름">
+          이름
+          <input
+            name="name"
+            value={values.name}
+            onChange={handleInput}
+            onBlur={handleChange}
+          />
+        </Label>
+        <Label htmlFor="나이">
+          나이
+          <input
+            name="age"
+            value={values.age}
+            onChange={handleInput}
+            onBlur={handleChange}
+          />
+        </Label>
       </form>
       <p>
         이름 {inputChange.name}
-        나이 {inputChange.age}
+        &nbsp;나이 {inputChange.age}
       </p>
-    </div>
+    </Container>
   )
 }
 
 export default ClickToEdit
+
+const Label = styled.label`
+  display: block;
+  padding-bottom: 10px;
+  input {
+    width: 10%;
+    height: 30px;
+    text-align: center;
+    margin-left: 5px;
+    &:focus {
+      background-color: transparent;
+    }
+  }
+`

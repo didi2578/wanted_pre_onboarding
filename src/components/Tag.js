@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
+import Container from './common/Container'
 
 const Tag = () => {
   const [tag, setTag] = useState('')
@@ -7,14 +8,14 @@ const Tag = () => {
   const [active, setActive] = useState(false)
 
   const tagChange = (e) => {
-    setTag(e.target.value)
+    setTag(e.target.value.trim())
   }
 
   const tagSubmit = (e) => {
-    e.preventDefault()
-
-    setTags((prevArray) => [...prevArray, tag])
-    setTag('')
+    if (e.key === 'Enter' && e.target.value !== '') {
+      setTags((prevArray) => [...prevArray, tag])
+      setTag('')
+    }
   }
 
   const onDelete = (index) => {
@@ -23,7 +24,7 @@ const Tag = () => {
   }
 
   return (
-    <div>
+    <Container title={'Tag'}>
       <TagWrapper className={`${active ? 'active' : ''}`}>
         <Ul>
           {tags.map((item, index) => (
@@ -42,7 +43,7 @@ const Tag = () => {
           placeholder="Press enter to add tags"
         />
       </TagWrapper>
-    </div>
+    </Container>
   )
 }
 
@@ -69,7 +70,7 @@ const Ul = styled.ul`
 const Li = styled.li`
   display: flex;
   margin: 0 5px;
-  padding: 8px 8px 7px;
+  padding: 7px;
   align-items: center;
   background-color: purple;
   color: white;
@@ -77,16 +78,17 @@ const Li = styled.li`
   white-space: pre;
 `
 const Button = styled.button`
-  width: 17px;
-  height: 17px;
+  width: 15px;
+  height: 15px;
   margin-left: 5px;
-  padding: 0 0 1px;
+  padding: 2px 1px 1px;
   border-color: transparent;
   border-radius: 50%;
   line-height: 0;
   background-color: white;
   color: purple;
   cursor: pointer;
+  font-size: 8px;
 `
 const Input = styled.input`
   width: 100%;

@@ -7,7 +7,6 @@ import Tag from './components/Tag'
 import Toggle from './components/Toggle'
 
 const App = () => {
-  const [tabIndex, setTabIndex] = useState(0)
   const [toggled, setToggled] = useState(false)
   const [showModal, setShowModal] = useState(false)
 
@@ -18,7 +17,7 @@ const App = () => {
         toggled={toggled}
       />
       <Modal showModal={showModal} setShowModal={setShowModal} />
-      <Tab tabIndex={tabIndex} setTabIndex={setTabIndex} />
+      <Tab />
       <Tag />
       <AutoComplete />
       <ClickToEdit />

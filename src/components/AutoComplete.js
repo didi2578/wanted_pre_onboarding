@@ -1,12 +1,13 @@
 import React, { useState, useEffect, useRef } from 'react'
 import styled from 'styled-components'
-import CityData from '../MOCK_DATA.json'
+import CityData from './common/MOCK_DATA.json'
+import Container from './common/Container'
 
 const AutoComplete = () => {
   const [search, setSearch] = useState('')
   const [filteredData, setFilteredData] = useState([])
   const [display, setDisplay] = useState(false)
-  const wrapperRef = useRef(null)
+  const wrapperRef = useRef()
 
   const handleSearch = (e) => {
     setSearch(e.target.value)
@@ -25,8 +26,8 @@ const AutoComplete = () => {
     setDisplay(false)
   }
 
-  const onSuggestionClick = (label) => {
-    setSearch(label)
+  const onFilterClick = (value) => {
+    setSearch(value)
     setDisplay(false)
   }
 
@@ -36,17 +37,18 @@ const AutoComplete = () => {
       window.removeEventListener('mousedown', handleClickOutside)
     }
   })
-  const handleClickOutside = (event) => {
-    const { current: wrap } = wrapperRef
-    if (wrap && !wrap.contains(event.target)) {
+  const handleClickOutside = (e) => {
+    const { current } = wrapperRef
+
+    if (!current.contains(e.target)) {
       setSearch('')
       setDisplay(false)
     }
   }
 
   return (
-    <>
-      <SearchInputContainer ref={wrapperRef}>
+    <Container title={'AutoComplete'}>
+      <SearchInputWrapper ref={wrapperRef}>
         <SearchInput
           value={search}
           onChange={handleSearch}
@@ -61,7 +63,7 @@ const AutoComplete = () => {
                   return (
                     <Li
                       key={value.id}
-                      onClick={() => onSuggestionClick(value.city)}
+                      onClick={() => onFilterClick(value.city)}
                     >
                       {value.city}
                     </Li>
@@ -71,14 +73,14 @@ const AutoComplete = () => {
             )}
           </AutoContainer>
         )}
-      </SearchInputContainer>
-    </>
+      </SearchInputWrapper>
+    </Container>
   )
 }
 
 export default AutoComplete
 
-const SearchInputContainer = styled.div`
+const SearchInputWrapper = styled.div`
   width: 50%;
   height: 30px;
   display: flex;
