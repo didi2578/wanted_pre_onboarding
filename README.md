@@ -1,6 +1,6 @@
 # 원티드 프리온보딩 수강생 선발 과제
 
-##1. Toggle
+## 1. Toggle
 
 ✅구현한 방법과 이유
 
@@ -10,13 +10,13 @@
 
 - css로 위치를 잡는 것이 어려웠지만 before와 after 선택자를 이용, 배경색이 자연스럽게 차오르도록 구현했다.
 
-##2. Modal
+## 2. Modal
 
 ✅구현한 방법과 이유
 
 - useState를 사용, state 상태가 true 일때만 modal 창이 보이도록 구현했다.
 
-##3. Tab
+## 3. Tab
 
 ✅구현한 방법과 이유
 
@@ -24,7 +24,7 @@
 
 - map의 index와 state로 전송된 index 값을 비교하여 선택된 tab에만 active 클래스를 주었다.
 
-##4. Tag
+## 4. Tag
 
 ✅구현한 방법과 이유
 
@@ -37,7 +37,7 @@
 
 - input창을 클릭할 때 마다 div도 포커스가 되는 것 같이 효과를 주고 싶었다. 따로 active state를 만들어 `onFocus={() => setActive(true)} onBlur={() => setActive(false)}` 상태를 관리했다.
 
-##5. AutoComplete
+## 5. AutoComplete
 ✅구현한 방법과 이유
 
 ✅구현하면서 어려웠던 점과 해결 방법
@@ -51,7 +51,7 @@
   2. `current.contains(e.target)` 현재 이벤트를 실행한 element가 ref에 포함되면 true, 포함되지 않으면 false이다.
   3. 외부를 클릭했을 때 동작해야 하므로 ` if (current && !current.contains(e.target))` !를 붙여준다
 
-##6. Click To Edit
+## 6. Click To Edit
 ✅구현한 방법과 이유
 
 ✅구현하면서 어려웠던 점과 해결 방법
