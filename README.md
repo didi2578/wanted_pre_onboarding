@@ -47,9 +47,9 @@
   - 해결방안
     📑참고사이트(https://developer-talk.tistory.com/124)
 
-  i. ref와 EventListener를 사용하여 외부클릭을 감지한다.
-  ii. `current.contains(e.target)` 현재 이벤트를 실행한 element가 ref에 포함되면 true, 포함되지 않으면 false이다.
-  iii. 외부를 클릭했을 때 동작해야 하므로 ` if (current && !current.contains(e.target))` !를 붙여준다
+  1.ref와 EventListener를 사용하여 외부클릭을 감지한다.
+  2.`current.contains(e.target)` 현재 이벤트를 실행한 element가 ref에 포함되면 true, 포함되지 않으면 false이다.
+  3. 외부를 클릭했을 때 동작해야 하므로 ` if (current && !current.contains(e.target))` !를 붙여준다
 
 ## 6. Click To Edit
 ✅구현한 방법과 이유
@@ -62,5 +62,5 @@
 
 - 단순하게 e.target.value를 사용하면 될 것이라고 생각했는데, onChange를 통해 보낸 value값이 잘 전달이 되지 않았다.
   - 해결방안
-  1.  `const { name, value } = e.target` 비구조화 할당을 통해 e.target 에서 name 과 value 를 추출
-  2.  `setValues((prevValues) => ({...prevValues,[name]: value,}))` 기존의 state를 복사한 뒤 name 키를 가진 값을 value 로 설정했다.
+  1.`const { name, value } = e.target` 비구조화 할당을 통해 e.target 에서 name 과 value 를 추출
+  2.`setValues((prevValues) => ({...prevValues,[name]: value,}))` 기존의 state를 복사한 뒤 name 키를 가진 값을 value 로 설정했다.
