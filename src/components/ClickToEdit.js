@@ -13,8 +13,6 @@ const ClickToEdit = () => {
       ...prevValues,
       [name]: value,
     }))
-
-    console.log(values)
   }
   const handleChange = (e) => {
     e.preventDefault()

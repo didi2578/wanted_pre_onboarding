@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import AutoComplete from './components/AutoComplete'
 import ClickToEdit from './components/ClickToEdit'
 import Modal from './components/Modal'
 import Tab from './components/Tab'
@@ -19,6 +20,7 @@ const App = () => {
       <Modal showModal={showModal} setShowModal={setShowModal} />
       <Tab tabIndex={tabIndex} setTabIndex={setTabIndex} />
       <Tag />
+      <AutoComplete />
       <ClickToEdit />
     </>
   )

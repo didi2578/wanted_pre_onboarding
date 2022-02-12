@@ -12,39 +12,27 @@ const Tag = () => {
 
   const tagSubmit = (e) => {
     e.preventDefault()
-    if (e.key !== 'Enter') {
-      return
-    }
 
-    if (tags.includes(tag)) {
-      alert('이미 존재하는 태그입니다.')
-      setTag('')
-      return
-    } else if (tag.trim() === '') {
-      setTag('')
-      return
-    }
     setTags((prevArray) => [...prevArray, tag])
     setTag('')
   }
 
-  const onDelete = (item) => {
-    const filtering = tags.filter((tag) => tag !== item)
+  const onDelete = (index) => {
+    const filtering = tags.filter((_, i) => i !== index)
     setTags(filtering)
-    console.log(item)
   }
 
   return (
     <div>
-      <Container className={`${active ? 'active' : ''}`}>
-        <TagList>
-          {tags.map((item) => (
-            <TagBox key={item}>
+      <TagWrapper className={`${active ? 'active' : ''}`}>
+        <Ul>
+          {tags.map((item, index) => (
+            <Li key={index}>
               {item}
-              <Button onClick={() => onDelete(item)}>✖</Button>
-            </TagBox>
+              <Button onClick={() => onDelete(index)}>✖</Button>
+            </Li>
           ))}
-        </TagList>
+        </Ul>
         <Input
           value={tag}
           onChange={tagChange}
@@ -53,16 +41,16 @@ const Tag = () => {
           onBlur={() => setActive(false)}
           placeholder="Press enter to add tags"
         />
-      </Container>
+      </TagWrapper>
     </div>
   )
 }
 
 export default Tag
-const Container = styled.div`
+const TagWrapper = styled.div`
   display: flex;
   width: 50%;
-  height: 52px;
+  height: 30px;
   margin: auto;
   padding: 10px;
   border: 1px solid #e3e3e3;
@@ -70,20 +58,20 @@ const Container = styled.div`
   overflow: hidden;
   outline: none;
   &.active {
-    outline: 1px solid #4800ce;
+    outline: 1px solid purple;
   }
 `
-const TagList = styled.ul`
+const Ul = styled.ul`
   display: flex;
   align-items: center;
   padding: 0;
 `
-const TagBox = styled.li`
+const Li = styled.li`
   display: flex;
   margin: 0 5px;
   padding: 8px 8px 7px;
   align-items: center;
-  background-color: #4800ce;
+  background-color: purple;
   color: white;
   border-radius: 8px;
   white-space: pre;
@@ -97,7 +85,7 @@ const Button = styled.button`
   border-radius: 50%;
   line-height: 0;
   background-color: white;
-  color: #4800ce;
+  color: purple;
   cursor: pointer;
 `
 const Input = styled.input`
